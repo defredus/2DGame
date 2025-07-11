@@ -8,8 +8,13 @@ public class Player : MonoBehaviour
 	private float _movementSpeed = 5f;
 	private float _minMovingSpeed = 0.1f;
 	private bool _isRunning = false;
+	Vector2 inputVector;
 	public static Player Instance { get; set; }
 
+	private void Start()
+	{
+		GameInput.Instance.OnPlayerAttack += Player_OnPlayerAttack;
+	}
 	private void Awake()
 	{
 		Instance = this;
@@ -19,9 +24,17 @@ public class Player : MonoBehaviour
 	{
 		HandleMovement();
 	}
+	private void Update()
+	{
+		inputVector = GameInput.Instance.GetMovementVector();
+		
+	}
+	private void Player_OnPlayerAttack(object sender, System.EventArgs e)
+	{
+		ActiveWeapon.Instance.GetActiveWeapon().Attack();
+	}
 	private void HandleMovement()
 	{
-		Vector2 inputVector = GameInput.Instance.GetMovementVector();
 		_rb.MovePosition(_rb.position + inputVector * (_movementSpeed * Time.fixedDeltaTime));
 		if (Mathf.Abs(inputVector.x) > _minMovingSpeed || Mathf.Abs(inputVector.y) > _minMovingSpeed)
 		{
