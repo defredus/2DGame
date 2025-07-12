@@ -1,6 +1,7 @@
 using System;
 using UnityEngine;
 
+[SelectionBase]
 public class Player : MonoBehaviour
 {
 	private Rigidbody2D _rb;
