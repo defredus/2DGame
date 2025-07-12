@@ -13,7 +13,7 @@ public class Player : MonoBehaviour
 
 	private void Start()
 	{
-		GameInput.Instance.OnPlayerAttack += Player_OnPlayerAttack;
+		GameInput.Instance.OnPlayerAttack += GameInput_OnPlayerAttack;
 	}
 	private void Awake()
 	{
@@ -29,7 +29,7 @@ public class Player : MonoBehaviour
 		inputVector = GameInput.Instance.GetMovementVector();
 		
 	}
-	private void Player_OnPlayerAttack(object sender, System.EventArgs e)
+	private void GameInput_OnPlayerAttack(object sender, System.EventArgs e)
 	{
 		ActiveWeapon.Instance.GetActiveWeapon().Attack();
 	}
