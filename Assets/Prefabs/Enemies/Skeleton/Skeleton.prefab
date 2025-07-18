@@ -144,10 +144,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd32625cc21f2d94e808df06a548053a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startingState: 1
-  roamingDistanceMax: 7
-  roamingDistanceMin: 3
-  roamingTimerMax: 2
+  _startingState: 0
+  _roamingDistanceMax: 7
+  _roamingDistanceMin: 3
+  _roamingTimerMax: 2
+  _isChaisngEnemy: 0
+  _isAttackingEnemy: 0
 --- !u!114 &8023825979948811224
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -160,7 +162,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59c2dc3fb8ab72b458c874a4a381de89, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxHealth: 0
+  _maxHealth: 20
 --- !u!1 &4175307108218898369
 GameObject:
   m_ObjectHideFlags: 0
@@ -172,6 +174,7 @@ GameObject:
   - component: {fileID: 8379540939116209135}
   - component: {fileID: 6072506402510427680}
   - component: {fileID: 4889725506202287907}
+  - component: {fileID: 1637893754990777056}
   m_Layer: 0
   m_Name: SkeletonVisual
   m_TagString: Untagged
@@ -272,6 +275,19 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1637893754990777056
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4175307108218898369}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: adb5ca286c484024aa2bfdba06bee7ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _enemyAI: {fileID: 3563667136941836813}
 --- !u!1 &7918834095317884399
 GameObject:
   m_ObjectHideFlags: 0

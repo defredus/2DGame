@@ -48,7 +48,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 16
+  spritePixelsToUnits: 24
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -110,45 +110,89 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Hero_Idle_0
+      name: Death_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 96
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 150
+        height: 150
+      alignment: 9
+      pivot: {x: 0.5, y: 0.33}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 08df26f7d18f121f0800000000000000
-      internalID: -1071302430762533504
+      spriteID: 86c94c84872a2f14b9fd14a6f742060c
+      internalID: 175411728
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Hero_Idle_1
+      name: Death_1
       rect:
         serializedVersion: 2
-        x: 96
+        x: 150
         y: 0
-        width: 96
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 150
+        height: 150
+      alignment: 9
+      pivot: {x: 0.5, y: 0.33}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 8ee6b80983d949500800000000000000
-      internalID: 402119133011603176
+      spriteID: 9594161d310e96a438a514ccfcb6f7b6
+      internalID: -1306280522
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Death_2
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 0
+        width: 150
+        height: 150
+      alignment: 9
+      pivot: {x: 0.5, y: 0.33}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 60d3321ee206ea646986d58968ec45a7
+      internalID: 1059310200
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Death_3
+      rect:
+        serializedVersion: 2
+        x: 450
+        y: 0
+        width: 150
+        height: 150
+      alignment: 9
+      pivot: {x: 0.5, y: 0.33}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9a4da09ebc8b8c9468ffefe4e66656b8
+      internalID: -868776786
       vertices: []
       indices: 
       edges: []
@@ -167,8 +211,10 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Hero_Idle_0: -1071302430762533504
-      Hero_Idle_1: 402119133011603176
+      Death_0: 175411728
+      Death_1: -1306280522
+      Death_2: 1059310200
+      Death_3: -868776786
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
