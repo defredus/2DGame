@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2682137499429840779}
   - component: {fileID: 9124287575321997842}
   - component: {fileID: 1788310864681589038}
+  - component: {fileID: 1873697722215502556}
   - component: {fileID: 3563667136941836813}
   - component: {fileID: 8023825979948811224}
   m_Layer: 0
@@ -132,6 +133,63 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 0.92579216, y: 2.2417755}
   m_EdgeRadius: 0
+--- !u!60 &1873697722215502556
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 221798892337138190}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 2.7385495, y: 0.83403707}
+      - {x: 2.200073, y: 1.0494288}
+      - {x: 0.9020431, y: 1.1891382}
+      - {x: 1.3767962, y: 0.5563508}
+      - {x: 0.25606138, y: -0.31434882}
+      - {x: 1.008323, y: -0.67757916}
+      - {x: 2.4937162, y: -0.50348663}
+      - {x: 2.935959, y: -0.12716937}
+      - {x: 3.0133874, y: 0.24615765}
+      - {x: 2.915183, y: 0.6290967}
+  m_UseDelaunayMesh: 0
 --- !u!114 &3563667136941836813
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -149,7 +207,11 @@ MonoBehaviour:
   _roamingDistanceMin: 3
   _roamingTimerMax: 2
   _isChaisngEnemy: 0
+  _chasingDistance: 4
+  _chasingSpeedMultiplier: 2
   _isAttackingEnemy: 0
+  _attackingDistance: 2
+  _attackRate: 1
 --- !u!114 &8023825979948811224
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -288,6 +350,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _enemyAI: {fileID: 3563667136941836813}
+  _enemyEntity: {fileID: 8023825979948811224}
 --- !u!1 &7918834095317884399
 GameObject:
   m_ObjectHideFlags: 0
@@ -299,7 +362,7 @@ GameObject:
   - component: {fileID: 2130492396848810056}
   - component: {fileID: 5275756225717796729}
   m_Layer: 0
-  m_Name: SlimeShadow
+  m_Name: SkeletonShadow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

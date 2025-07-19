@@ -13,13 +13,13 @@ public class SwordVisual : MonoBehaviour
 	{
 		sword.OnSwordSwing += Sword_OnSwordSwing;
 	}
-	private void Sword_OnSwordSwing(object sender, System.EventArgs e)
-	{
-		animator.SetTrigger(ATTACK);
-	}
 	public void TriggerEndAttackAnimation()
 	{
 		sword.AttackColliderTurnOff();
+	}
+	private void Sword_OnSwordSwing(object sender, System.EventArgs e)
+	{
+		animator.SetTrigger(ATTACK);
 	}
 
 }

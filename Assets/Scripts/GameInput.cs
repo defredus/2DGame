@@ -15,12 +15,12 @@ public class GameInput : MonoBehaviour
 		_playerInputActions.Enable();
 		_playerInputActions.Combat.Attack.started += PlayerAttack_started;
 	}
+	public Vector2 GetMovementVector() => _playerInputActions.Player.Move.ReadValue<Vector2>();
+	public Vector3 GetMousePositiron() => Mouse.current.position.ReadValue();
 
 	private void PlayerAttack_started(InputAction.CallbackContext obj)
 	{
 		OnPlayerAttack?.Invoke(this, EventArgs.Empty);
 	}
 
-	public Vector2 GetMovementVector() => _playerInputActions.Player.Move.ReadValue<Vector2>();
-	public Vector3 GetMousePositiron() => Mouse.current.position.ReadValue();
 }

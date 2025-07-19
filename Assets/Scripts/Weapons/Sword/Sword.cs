@@ -20,16 +20,16 @@ public class Sword : MonoBehaviour
 		OnSwordSwing?.Invoke(this, EventArgs.Empty);
 
 	}
+	public void AttackColliderTurnOff()
+	{
+		_polygonCollider2D.enabled = false;
+	}
 	private void OnTriggerEnter2D(Collider2D collision)
 	{
 		if(collision.transform.TryGetComponent(out EnemyEntity enemyEntity))
 		{
 			enemyEntity.TakeDamage(_damageAmount);
 		}
-	}
-	public void AttackColliderTurnOff()
-	{
-		_polygonCollider2D.enabled = false;
 	}
 	private void AttackColliderTurnOn()
 	{

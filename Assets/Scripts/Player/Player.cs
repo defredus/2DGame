@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 [SelectionBase]
@@ -30,6 +29,8 @@ public class Player : MonoBehaviour
 		inputVector = GameInput.Instance.GetMovementVector();
 		
 	}
+	public bool IsRunning() => _isRunning;
+	public Vector3 GetPlayerPosition() => Camera.main.WorldToScreenPoint(transform.position);
 	private void GameInput_OnPlayerAttack(object sender, System.EventArgs e)
 	{
 		ActiveWeapon.Instance.GetActiveWeapon().Attack();
@@ -43,7 +44,5 @@ public class Player : MonoBehaviour
 		}
 		else { _isRunning = false; }
 	}
-	public bool IsRunning() => _isRunning;
-	public Vector3 GetPlayerPosition() => Camera.main.WorldToScreenPoint(transform.position);
 }
 

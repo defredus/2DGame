@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.AI;
 using KnightAdventure.Utils;
 using System;
-using TMPro;
+
 public class EnemyAI : MonoBehaviour
 {
 	[SerializeField] private State _startingState;
@@ -12,7 +12,7 @@ public class EnemyAI : MonoBehaviour
 
     [SerializeField] private bool _isChaisngEnemy = false;
 	[SerializeField]  private float _chasingDistance = 4f;
-	[SerializeField]  private float _chasingSpeedMultiplayer = 2f;
+	[SerializeField]  private float _chasingSpeedMultiplier = 2f;
 
 	[SerializeField] private bool _isAttackingEnemy = false;
 	[SerializeField] private float _attackingDistance = 2f;
@@ -55,13 +55,17 @@ public class EnemyAI : MonoBehaviour
         _navMeshAgent.updateUpAxis = false;
         _currentState = _startingState;
         _roamingSpeed = _navMeshAgent.speed;
-        _chasingSpeed = _navMeshAgent.speed * _chasingSpeedMultiplayer;
+        _chasingSpeed = _navMeshAgent.speed * _chasingSpeedMultiplier;
     }
 	private void Update()
 	{
         StateHandler();
         MovementDirectionHandler();
 	}
+    public float GetRoamingAnimationSpeed()
+    {
+        return _navMeshAgent.speed / _roamingSpeed;
+    }
     private void StateHandler()
     {
 		switch (_currentState)
@@ -156,10 +160,6 @@ public class EnemyAI : MonoBehaviour
     {
         if(sourcePosition.x > targetPosition.x) { transform.rotation = Quaternion.Euler(0, -180, 0); }
         else { transform.rotation = Quaternion.Euler(0, 0, 0);  }
-    }
-    public float GetRoamingAnimationSpeed()
-    {
-        return _navMeshAgent.speed / _roamingSpeed;
     }
     private void MovementDirectionHandler()
     {
