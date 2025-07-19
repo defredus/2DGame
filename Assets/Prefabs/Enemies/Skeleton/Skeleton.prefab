@@ -224,7 +224,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59c2dc3fb8ab72b458c874a4a381de89, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxHealth: 20
+  _enemySo: {fileID: 0}
 --- !u!1 &4175307108218898369
 GameObject:
   m_ObjectHideFlags: 0
@@ -309,7 +309,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 2, y: 2}
+  m_Size: {x: 6.25, y: 6.25}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -351,6 +351,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _enemyAI: {fileID: 3563667136941836813}
   _enemyEntity: {fileID: 8023825979948811224}
+  _enemyShadow: {fileID: 0}
 --- !u!1 &7918834095317884399
 GameObject:
   m_ObjectHideFlags: 0
