@@ -179,16 +179,16 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 2.7385495, y: 0.83403707}
-      - {x: 2.200073, y: 1.0494288}
-      - {x: 0.9020431, y: 1.1891382}
-      - {x: 1.3767962, y: 0.5563508}
-      - {x: 0.25606138, y: -0.31434882}
-      - {x: 1.008323, y: -0.67757916}
-      - {x: 2.4937162, y: -0.50348663}
-      - {x: 2.935959, y: -0.12716937}
-      - {x: 3.0133874, y: 0.24615765}
-      - {x: 2.915183, y: 0.6290967}
+    - - {x: 2.7385495, y: 1.9264083}
+      - {x: 2.1652107, y: 2.1069374}
+      - {x: 1.0414946, y: 2.2117834}
+      - {x: 0.40063393, y: 0.4866253}
+      - {x: 1.4181585, y: 0.39453006}
+      - {x: 1.7520651, y: 0.42641306}
+      - {x: 2.3775065, y: 0.57726383}
+      - {x: 2.854613, y: 0.7908869}
+      - {x: 3.0017674, y: 1.1293507}
+      - {x: 3.019771, y: 1.5471535}
   m_UseDelaunayMesh: 0
 --- !u!114 &3563667136941836813
 MonoBehaviour:
@@ -224,7 +224,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59c2dc3fb8ab72b458c874a4a381de89, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _enemySo: {fileID: 0}
+  _enemySO: {fileID: 0}
 --- !u!1 &4175307108218898369
 GameObject:
   m_ObjectHideFlags: 0
@@ -304,7 +304,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -35000139, guid: 258f83ff3697b2046a4e801de3c2f00a, type: 3}
+  m_Sprite: {fileID: 1882479327, guid: a522d82ce132f5a40a491b7e530cf2bc, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

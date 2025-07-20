@@ -6,7 +6,7 @@ using UnityEngine;
 [RequireComponent(typeof(EnemyAI))]
 public class EnemyEntity : MonoBehaviour
 {
-	[SerializeField] private EnemySO _enemySo;
+	[SerializeField] private EnemySO _enemySO;
 
 	private PolygonCollider2D _polygonCollider2D;
 	private BoxCollider2D _boxCollider2D;
@@ -19,7 +19,9 @@ public class EnemyEntity : MonoBehaviour
 
 	private void Start()
 	{
-		_currentHealth = _enemySo.enemyHealth;
+		_currentHealth = _enemySO.enemyHealth;
+		PolygonColliderTurnOff();
+
 	}
 	private void Awake()
 	{
@@ -27,9 +29,12 @@ public class EnemyEntity : MonoBehaviour
 		_boxCollider2D = GetComponent<BoxCollider2D>();
 		_enemyAI = GetComponent<EnemyAI>();
 	}
-	private void OnTriggerEnter2D(Collider2D collision)
+	private void OnTriggerStay2D(Collider2D collision)
 	{
-		Debug.Log("Attack");
+		if(collision.transform.TryGetComponent(out Player player))
+		{
+			player.TakeDamage(transform, _enemySO.enemyDamageAmount);
+		}
 	}
 	public void TakeDamage(int damage)
     {
@@ -39,10 +44,12 @@ public class EnemyEntity : MonoBehaviour
     }
 	public void PolygonColliderTurnOff()
 	{
+		//Debug.Log("ColliderOff");
 		_polygonCollider2D.enabled = false;
 	}
 	public void PolygonColliderTurnOn()
 	{
+		//Debug.Log("ColliderOn");
 		_polygonCollider2D.enabled = true;
 	}
 	private void DetectDeath()

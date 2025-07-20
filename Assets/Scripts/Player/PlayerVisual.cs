@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class PlayerVisual : MonoBehaviour
@@ -5,6 +6,7 @@ public class PlayerVisual : MonoBehaviour
 	private Animator _animator;
 	private SpriteRenderer _spriteRenderer;
 	private const string IS_RUNNING = "IsRunning";
+	private const string IS_DEAD = "IsDead";
 	private void Awake()
 	{
 		_animator = GetComponent<Animator>();
@@ -13,7 +15,21 @@ public class PlayerVisual : MonoBehaviour
 	private void Update()
 	{
 		_animator.SetBool(IS_RUNNING, Player.Instance.IsRunning());
-		AdjustPlayerFacingDirection();
+
+		if(Player.Instance.IsAlive())
+		{ 
+			AdjustPlayerFacingDirection(); 
+		}
+
+	}
+	private void Start()
+	{
+		Player.Instance.OnPlayerDeath += Player_OnPlayerDeath;
+	}
+
+	private void Player_OnPlayerDeath(object sender, EventArgs e)
+	{
+		_animator.SetBool(IS_DEAD, true);
 	}
 
 	private void AdjustPlayerFacingDirection()
