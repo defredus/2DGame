@@ -16,6 +16,7 @@ public class Player : MonoBehaviour
 	private KnockBack _knockBack;
 
 	public event EventHandler OnPlayerDeath;
+	public event EventHandler OnFlsahBlink;
 	public static Player Instance { get; set; }
 
 	private float _minMovingSpeed = 0.1f;
@@ -57,6 +58,8 @@ public class Player : MonoBehaviour
 			_canTakeDamage = false;
 			_currentHealth = Mathf.Max(0, _currentHealth - damage);
 			_knockBack.GetKnockedBack(dagameSource);
+
+			OnFlsahBlink?.Invoke(this, EventArgs.Empty);
 
 			StartCoroutine(DamageRecoveryRoutine());
 		}
