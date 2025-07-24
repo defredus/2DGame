@@ -94,5 +94,9 @@ public class Player : MonoBehaviour
 		}
 		else { _isRunning = false; }
 	}
+	private void OnDestroy()
+	{
+		GameInput.Instance.OnPlayerAttack -= GameInput_OnPlayerAttack;
+	}
 }
 

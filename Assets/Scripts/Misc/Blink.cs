@@ -19,13 +19,15 @@ public class FlashBlink : MonoBehaviour
 
         _isBlinking = true;
 
-        if(_damagableObject is Player) 
-        {
-            (_damagableObject as Player).OnFlsahBlink += DamagableObject_OnFlashBlink;
-        }
 	}
 
-
+    private void Start()
+    {
+		if (_damagableObject is Player)
+		{
+			(_damagableObject as Player).OnFlsahBlink += DamagableObject_OnFlashBlink;
+		}
+	}
 	private void Update()
 	{
         if (_isBlinking)
@@ -53,4 +55,11 @@ public class FlashBlink : MonoBehaviour
         _blinkTimer = _blinkDuration;
         _spriteRenderer.material = _blinkMaterial;
     }
+	private void OnDestroy()
+	{
+		if(_damagableObject is Player)
+        {
+            (_damagableObject as Player).OnFlsahBlink -= DamagableObject_OnFlashBlink;
+        }
+	}
 }

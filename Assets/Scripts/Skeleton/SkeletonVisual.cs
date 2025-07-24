@@ -37,10 +37,6 @@ public class SkeletonVisual : MonoBehaviour
 	}
 
 
-	private void OnDestroy()
-	{
-		_enemyAI.onEnemyAttack -= _enemyAI_OnEnemyAttack;
-	}
 	public void AttackAnimationTriggerTurnOff()
 	{
 		_enemyEntity.PolygonColliderTurnOff();
@@ -63,5 +59,11 @@ public class SkeletonVisual : MonoBehaviour
 	private void _enemyAI_OnEnemyAttack(object sender, System.EventArgs e)
 	{
 		_animator.SetTrigger(ATTACK);
+	}
+	private void OnDestroy()
+	{
+		_enemyAI.onEnemyAttack -= _enemyAI_OnEnemyAttack;
+		_enemyEntity.OnTakeHit -= _enemyEntity_OnTakeHit;
+		_enemyEntity.OnDeath -= _enemyEntity_OnDeath;
 	}
 }

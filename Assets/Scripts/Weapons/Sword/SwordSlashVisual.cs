@@ -22,4 +22,8 @@ public class SwordSlashVisual : MonoBehaviour
 	{
 		animator.SetTrigger(ATTACK);
 	}
+	private void OnDestroy()
+	{
+		sword.OnSwordSwing -= Sword_OnSwordSwing;
+	}
 }
