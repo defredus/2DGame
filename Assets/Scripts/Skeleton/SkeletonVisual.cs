@@ -16,6 +16,7 @@ namespace Scripts.Skeleton
 		private SpriteRenderer _spriteRenderer;
 
 		private const string IS_RUNNING = "IsRunning";
+		private const string IS_ATTACK_ENDS = "IsAttackEnd";
 		private const string CHASING_SPEED_MULTIPLIER = "ChaisingSpeedMultiplier";
 		private const string ATTACK = "Attack";
 		private const string TAKE_HIT = "TakeHit";
@@ -41,6 +42,7 @@ namespace Scripts.Skeleton
 
 		public void AttackAnimationTriggerTurnOff()
 		{
+			_animator.SetTrigger(IS_ATTACK_ENDS);
 			_enemyEntity.PolygonColliderTurnOff();
 		}
 		public void AttackAnimationTriggerTurnOn()
