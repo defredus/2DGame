@@ -1,22 +1,25 @@
 using UnityEngine;
 
-public class SelfDestroyVFX : MonoBehaviour
+namespace Scripts.Misc
 {
-    private ParticleSystem _ps;
+	public class SelfDestroyVFX : MonoBehaviour
+	{
+		private ParticleSystem _ps;
 
-	private void Awake()
-	{
-		_ps = GetComponent<ParticleSystem>();
-	}
-	private void Update()
-	{
-		if(_ps && !_ps.IsAlive())
+		private void Awake()
 		{
-			DestroyItSelf();
+			_ps = GetComponent<ParticleSystem>();
 		}
-	}
-	private void DestroyItSelf()
-	{
-		Destroy(gameObject);
+		private void Update()
+		{
+			if(_ps && !_ps.IsAlive())
+			{
+				DestroyItSelf();
+			}
+		}
+		private void DestroyItSelf()
+		{
+			Destroy(gameObject);
+		}
 	}
 }

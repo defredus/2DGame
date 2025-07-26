@@ -1,8 +1,8 @@
 using UnityEngine;
 
-namespace KnightAdventure.Utils
+namespace Scripts.Utils
 {
-	public static class Utils
+	public static class Util
 	{
 		public static Vector3 GetRandomDir()
 		{

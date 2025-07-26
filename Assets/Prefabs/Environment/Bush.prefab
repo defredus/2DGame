@@ -200,5 +200,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4d0b940588cad348a11c59963abe1bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _destructiblePlant: {fileID: 6080157711820874498}
-  _bushDeathVFXPrefab: {fileID: 8449081858087110009, guid: 73ff672407521484ea614562c086e67c, type: 3}
+  destructiblePlant: {fileID: 6080157711820874498}
+  bushDeathVFXPrefab: {fileID: 8449081858087110009, guid: 73ff672407521484ea614562c086e67c, type: 3}
