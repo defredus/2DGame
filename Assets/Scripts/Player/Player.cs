@@ -14,6 +14,8 @@ namespace Scripts.Player_P
 		[SerializeField] private int maxHealth = 10;
 		[SerializeField] private float movementSpeed = 5f;
 		[SerializeField] private float damageRecoveryTime = 0.5f;
+		[SerializeField] private int dashSpeed = 4;
+		[SerializeField] private float dashTime = 0.2f;
 
 		private Rigidbody2D _rb;
 		private KnockBack _knockBack;
@@ -28,18 +30,23 @@ namespace Scripts.Player_P
 		private int _currentHealth;
 		private bool _canTakeDamage;
 		private bool _isAlive;
+		private float _initialMovementSpeed;
 		private void Start()
 		{
 			_canTakeDamage = true;
 			_currentHealth = maxHealth;
 			_isAlive = true;
 			GameInput.Instance.OnPlayerAttack += GameInput_OnPlayerAttack;
+			GameInput.Instance.OnPlayerDash += GameInput_OnPlayerDash;
 		}
+
+
 		private void Awake()
 		{
 			Instance = this;
 			_rb = GetComponent<Rigidbody2D>();
 			_knockBack = GetComponent<KnockBack>();
+			_initialMovementSpeed = movementSpeed; 
 		}
 		private void FixedUpdate()
 		{
@@ -67,6 +74,20 @@ namespace Scripts.Player_P
 				StartCoroutine(DamageRecoveryRoutine());
 			}
 			DetectDeath();
+		}
+		private void GameInput_OnPlayerDash(object sender, EventArgs e)
+		{
+			Dash();
+		}
+		private void Dash()
+		{
+			StartCoroutine(DashRoutine());
+		}
+		private IEnumerator DashRoutine()
+		{
+			movementSpeed *= dashSpeed;
+			yield return new WaitForSeconds(dashTime);
+			movementSpeed = _initialMovementSpeed;
 		}
 		private IEnumerator DamageRecoveryRoutine()
 		{
