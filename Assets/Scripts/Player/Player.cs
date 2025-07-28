@@ -10,12 +10,16 @@ namespace Scripts.Player_P
 	[RequireComponent(typeof(KnockBack))]
 	public class Player : MonoBehaviour
 	{
-
+		[Header("Dash Settings")]
+		[SerializeField] private int dashSpeed = 4;
+		[SerializeField] private float dashTime = 0.2f;
+		[SerializeField] private float dashCooldownTime = 0.25f;
+		[Header("Player Stats")]
 		[SerializeField] private int maxHealth = 10;
 		[SerializeField] private float movementSpeed = 5f;
 		[SerializeField] private float damageRecoveryTime = 0.5f;
-		[SerializeField] private int dashSpeed = 4;
-		[SerializeField] private float dashTime = 0.2f;
+		[Header("Trail Rendere")]
+		[SerializeField] private TrailRenderer trailRenderer;
 
 		private Rigidbody2D _rb;
 		private KnockBack _knockBack;
@@ -30,6 +34,7 @@ namespace Scripts.Player_P
 		private int _currentHealth;
 		private bool _canTakeDamage;
 		private bool _isAlive;
+		private bool _isDashing;
 		private float _initialMovementSpeed;
 		private void Start()
 		{
@@ -81,13 +86,21 @@ namespace Scripts.Player_P
 		}
 		private void Dash()
 		{
-			StartCoroutine(DashRoutine());
+			if(!_isDashing)
+				StartCoroutine(DashRoutine());
 		}
 		private IEnumerator DashRoutine()
 		{
+			_isDashing = true;
 			movementSpeed *= dashSpeed;
+			trailRenderer.emitting = true;
 			yield return new WaitForSeconds(dashTime);
+
 			movementSpeed = _initialMovementSpeed;
+			trailRenderer.emitting = false;
+
+			yield return new WaitForSeconds(dashCooldownTime);
+			_isDashing = false;
 		}
 		private IEnumerator DamageRecoveryRoutine()
 		{
