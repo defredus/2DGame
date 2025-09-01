@@ -22,6 +22,7 @@ namespace Scripts.Skeleton
 	    [SerializeField] private float attackRate = 2f;
         private float _nextAttackTime = 0f;
 
+
 	    private NavMeshAgent _navMeshAgent;
         private State _currentState;
         private float _roamingTimer;
@@ -59,6 +60,7 @@ namespace Scripts.Skeleton
             _currentState = startingState;
             _roamingSpeed = _navMeshAgent.speed;
             _chasingSpeed = _navMeshAgent.speed * chasingSpeedMultiplier;
+
         }
 	    private void Update()
 	    {
@@ -107,7 +109,7 @@ namespace Scripts.Skeleton
             State newState = State.Roaming;
             if (isChaisngEnemy)
             {
-                if(distanceToPlayer <= chasingDistance)
+                if (Player.Instance.IsAlive() && distanceToPlayer <= chasingDistance)
                 {
                     newState = State.Chasing;
                 }
@@ -115,7 +117,7 @@ namespace Scripts.Skeleton
 
             if (isAttackingEnemy)
             {
-                if(distanceToPlayer <= attackingDistance)
+                if (distanceToPlayer <= attackingDistance)
                 {
                     if (Player.Instance.IsAlive()) { newState = State.Attacking; }
                     else { newState = State.Roaming; }
@@ -128,12 +130,14 @@ namespace Scripts.Skeleton
                 {
                     _navMeshAgent.ResetPath();
                     _navMeshAgent.speed = _chasingSpeed;
-                } else if (newState == State.Roaming)
+                }
+                else if (newState == State.Roaming)
                 {
                     _roamingTimer = 0f;
                     _navMeshAgent.speed = _roamingSpeed;
-                } else if (newState == State.Attacking)
-                    { _navMeshAgent.ResetPath(); }
+                }
+                else if (newState == State.Attacking)
+                { _navMeshAgent.ResetPath(); }
                 _currentState = newState;
             }
             return newState;
@@ -142,7 +146,7 @@ namespace Scripts.Skeleton
         {
             _navMeshAgent.SetDestination(Player.Instance.transform.position);
         }
-        private void    AttackingTarget()
+        private void AttackingTarget()
         {
             if(Time.time > _nextAttackTime)
             {
