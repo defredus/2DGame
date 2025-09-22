@@ -37,6 +37,7 @@ namespace Scripts.Player_P
 		{
 			_animator.SetBool(IS_DEAD, true);
 			_flashBlink.StopBlinking();
+
 		}
 
 		private void AdjustPlayerFacingDirection()
